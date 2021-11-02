@@ -1,7 +1,7 @@
 import React from 'react';
 import { Logo } from 'components/logo';
 
-export default {
+const nextraConfig = {
   github: 'https://github.com/formium/tsdx',
   titleSuffix: ' – TSDX',
   logo: (
@@ -89,3 +89,5 @@ export default {
     </>
   ),
 };
+
+export default nextraConfig;

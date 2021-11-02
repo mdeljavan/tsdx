@@ -198,11 +198,12 @@ export async function createRollupConfig(
       opts.env !== undefined &&
         replace({
           'process.env.NODE_ENV': JSON.stringify(opts.env),
+          preventAssignment: true,
         }),
       sourceMaps(),
       shouldMinify &&
         terser({
-          sourcemap: true,
+          // sourcemap: true,
           output: { comments: false },
           compress: {
             keep_infinity: true,

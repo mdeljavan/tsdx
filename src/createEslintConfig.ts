@@ -1,6 +1,6 @@
+import { ESLint } from 'eslint';
 import fs from 'fs-extra';
 import path from 'path';
-import { CLIEngine } from 'eslint';
 import { PackageJson } from './types';
 import { getReactVersion } from './utils';
 
@@ -8,20 +8,18 @@ interface CreateEslintConfigArgs {
   pkg: PackageJson;
   rootDir: string;
   writeFile: boolean;
+  ignorePatterns: string | string[];
 }
 export async function createEslintConfig({
   pkg,
   rootDir,
   writeFile,
-}: CreateEslintConfigArgs): Promise<CLIEngine.Options['baseConfig'] | void> {
+  ignorePatterns,
+}: CreateEslintConfigArgs): Promise<ESLint.Options['baseConfig'] | void> {
   const isReactLibrary = Boolean(getReactVersion(pkg));
-
   const config = {
-    extends: [
-      'react-app',
-      'prettier/@typescript-eslint',
-      'plugin:prettier/recommended',
-    ],
+    extends: ['react-app', 'plugin:prettier/recommended'],
+    ignorePatterns,
     settings: {
       react: {
         // Fix for https://github.com/jaredpalmer/tsdx/issues/279
@@ -42,7 +40,7 @@ export async function createEslintConfig({
       { flag: 'wx' }
     );
   } catch (e) {
-    if (e.code === 'EEXIST') {
+    if ((e as any).code === 'EEXIST') {
       console.error(
         'Error trying to save the Eslint configuration file:',
         `${file} already exists.`
