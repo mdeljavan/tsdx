@@ -1,13 +1,13 @@
 import { PackageJson } from 'type-fest';
 import { Options } from 'prettier';
 
-type Husky = {
+export type Husky = {
   husky: {
     hooks: Record<string, string>;
   };
 };
 
-type Prettier = {
+export type Prettier = {
   prettier: Options;
 };
 
