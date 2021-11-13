@@ -594,12 +594,11 @@ prog
       if (opts.fix) {
         ESLint.outputFixes(report);
       }
-      console.log((await cli.loadFormatter()).format(report));
+      const formatter = await cli.loadFormatter();
+      console.log(formatter.format(report));
       if (opts['report-file']) {
-        await fs.outputFile(
-          opts['report-file'],
-          (await cli.loadFormatter('json')).format(report)
-        );
+        const jsonFormatter = await cli.loadFormatter('json');
+        await fs.outputFile(opts['report-file'], jsonFormatter.format(report));
       }
       const errorCount = report.reduce((acc, curr) => acc + curr.errorCount, 0);
       const warningCount = report.reduce(
