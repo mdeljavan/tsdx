@@ -9,7 +9,7 @@ const testDir = 'integration';
 const fixtureName = 'build-options';
 const stageName = `stage-integration-${fixtureName}`;
 
-describe('integration :: tsdx build :: options', () => {
+describe('integration :: utsdx build :: options', () => {
   beforeAll(() => {
     util.teardownStage(stageName);
     util.setupStageWithFixture(testDir, stageName, fixtureName);
