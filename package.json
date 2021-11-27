@@ -1,13 +1,13 @@
 {
-  "name": "tsdx",
+  "name": "utsdx",
   "version": "0.14.1",
   "author": "Jared Palmer <jared@palmer.net>",
   "description": "Zero-config TypeScript package development",
   "license": "MIT",
-  "homepage": "https://github.com/formium/tsdx",
+  "homepage": "https://github.com/mdeljavan/tsdx",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/formium/tsdx.git"
+    "url": "git+https://github.com/mdeljavan/tsdx.git"
   },
   "keywords": [
     "react",
@@ -16,10 +16,10 @@
     "rollup"
   ],
   "bugs": {
-    "url": "https://github.com/formium/tsdx/issues"
+    "url": "https://github.com/mdeljavan/tsdx/issues"
   },
   "bin": {
-    "tsdx": "./dist/index.js"
+    "utsdx": "./dist/index.js"
   },
   "scripts": {
     "prepare": "tsc -p tsconfig.json && husky install",

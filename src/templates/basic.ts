@@ -4,7 +4,7 @@ const basicTemplate: Template = {
   name: 'basic',
   dependencies: [
     'husky',
-    'tsdx',
+    'utsdx',
     'tslib',
     'typescript',
     'size-limit',
@@ -23,11 +23,11 @@ const basicTemplate: Template = {
       node: '>=10',
     },
     scripts: {
-      start: 'tsdx watch',
-      build: 'tsdx build',
-      test: 'tsdx test',
-      lint: 'tsdx lint',
-      prepare: 'tsdx build',
+      start: 'utsdx watch',
+      build: 'utsdx build',
+      test: 'utsdx test',
+      lint: 'utsdx lint',
+      prepare: 'utsdx build',
       size: 'size-limit',
       analyze: 'size-limit --why',
     },
@@ -46,7 +46,7 @@ const basicTemplate: Template = {
     */
     husky: {
       hooks: {
-        'pre-commit': 'tsdx lint',
+        'pre-commit': 'utsdx lint',
       },
     },
     prettier: {

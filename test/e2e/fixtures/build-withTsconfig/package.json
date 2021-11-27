@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "tsdx build"
+    "build": "utsdx build"
   },
   "name": "build-withtsconfig",
   "license": "MIT"

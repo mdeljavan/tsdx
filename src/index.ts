@@ -49,7 +49,7 @@ import { composePackageJson } from './templates/utils';
 import * as deprecated from './deprecated';
 const pkg = require('../package.json');
 
-const prog = sade('tsdx');
+const prog = sade('utsdx');
 
 let appPackageJson: PackageJson;
 
@@ -100,7 +100,7 @@ async function getInputs(
 prog
   .version(pkg.version)
   .command('create <pkg>')
-  .describe('Create a new package with TSDX')
+  .describe('Create a new package with UTSDX')
   .example('create mypackage')
   .option(
     '--template',
@@ -112,13 +112,11 @@ prog
   .action(async (pkg: string, opts: any) => {
     console.log(
       chalk.blue(`
-::::::::::: ::::::::  :::::::::  :::    :::
-    :+:    :+:    :+: :+:    :+: :+:    :+:
-    +:+    +:+        +:+    +:+  +:+  +:+
-    +#+    +#++:++#++ +#+    +:+   +#++:+
-    +#+           +#+ +#+    +#+  +#+  +#+
-    #+#    #+#    #+# #+#    #+# #+#    #+#
-    ###     ########  #########  ###    ###
+      ██    ██ ████████ ███████ ██████  ██   ██ 
+      ██    ██    ██    ██      ██   ██  ██ ██  
+      ██    ██    ██    ███████ ██   ██   ███   
+      ██    ██    ██         ██ ██   ██  ██ ██  
+       ██████     ██    ███████ ██████  ██   ██ 
 `)
     );
     const bootSpinner = ora(`Creating ${chalk.bold.green(pkg)}...`);
@@ -569,8 +567,8 @@ prog
         opts['_'] = defaultInputs;
         console.log(
           chalk.yellow(
-            `Defaulting to "tsdx lint ${defaultInputs.join(' ')}"`,
-            '\nYou can override this in the package.json scripts, like "lint": "tsdx lint src otherDir"'
+            `Defaulting to "utsdx lint ${defaultInputs.join(' ')}"`,
+            '\nYou can override this in the package.json scripts, like "lint": "utsdx lint src otherDir"'
           )
         );
       }
